@@ -1,0 +1,9 @@
+<%- include partials/header.ejs %>
+
+<form action="/articles/<%=title%>" method="post">
+    <p><%=title%></p>
+    <p><%=content%></p>
+    <button type="submit" name="submit">POST</button>
+</form>
+
+<%- include partials/footer.ejs %>
