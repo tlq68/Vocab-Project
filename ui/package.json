@@ -1,9 +1,10 @@
 {
-  "name": "using-pre-built-react-components-completed",
+  "name": "ui",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@material-ui/core": "4.6.1",
     "@material-ui/icons": "4.5.1",
@@ -17,6 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon ./../api/app.js\" \"npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

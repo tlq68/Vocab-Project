@@ -48,7 +48,7 @@ function CreateArea(props) {
 
   return (
     <div>
-      <form className="create-note">
+      <form action="../../post" method="post" className="create-note">
         {isExpanded && (
           <input
             name="title"
@@ -78,6 +78,8 @@ function CreateArea(props) {
             <RemoveIcon />
           </Fab>
         </Zoom>
+
+        <button type="submit" name="submitButton"></button>
       </form>
     </div>
   );

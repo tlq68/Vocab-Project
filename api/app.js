@@ -17,14 +17,13 @@ const articleSchema = {
   title: String,
   content: 
   {
-    type: String,
-    required: true
+    type: String
   }
 }
 
 const Article = mongoose.model('Article', articleSchema)
 
-app.route('/articles')
+/* app.route('/articles')
 
 .get((req, res) => {
     Article.find({}, (err, foundArticles) => {
@@ -124,8 +123,15 @@ app.route('/articles/:articleTitle')
       }
     }
   )
-})
+}) */
 
-app.listen(3000, () => {
-  console.log('Server started on port 3000')
+app.post("/post", (req, res) => {
+  console.log("Connected to React");
+  res.redirect("/");
+});
+
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`)
 })
