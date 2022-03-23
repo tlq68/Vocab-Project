@@ -78,8 +78,13 @@ function CreateArea(props) {
             <RemoveIcon />
           </Fab>
         </Zoom>
+      </form>
 
-        <button type="submit" name="submitButton"></button>
+      <form action="../../articles" method="post">
+      <input type="text" value='Title Test' name="title"></input>
+      <input type="text" value='Content Test' name="content"></input>
+      <button type="submit" name="submitButton">submit</button>
+
       </form>
     </div>
   );

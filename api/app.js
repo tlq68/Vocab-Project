@@ -23,7 +23,7 @@ const articleSchema = {
 
 const Article = mongoose.model('Article', articleSchema)
 
-/* app.route('/articles')
+app.route('/articles')
 
 .get((req, res) => {
     Article.find({}, (err, foundArticles) => {
@@ -123,14 +123,15 @@ app.route('/articles/:articleTitle')
       }
     }
   )
-}) */
+})
+
+const PORT = process.env.PORT || 3001;
 
 app.post("/post", (req, res) => {
-  console.log("Connected to React");
+  console.log(`Connected to React from ${PORT}` );
   res.redirect("/");
 });
 
-const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`)
