@@ -10,9 +10,15 @@ The first step is to take the code from two previously completed projects. One p
 
 ## Connecting React code to Node 
 
-As this was a new skill that I had never previously worked on, I had to do some research to find different ways to build a MERN application. The method I settled on was running multiple scripts through the package.json file. 
+As this is a new skill that I have never previously worked on, I have to do some research to find different ways to build a MERN application. The method I settled on is running multiple scripts through the package.json file. 
 
 This step was made possible by using the [concurrently](https://www.npmjs.com/package/concurrently) package from npm. 
+
+After connecting the two ends, it is now possible to send information from the React side to the backend, but in the final version of this application, the users should not be able to send information to the backend as everything will be stored on their local devices. So, the next step is getting the information from the backend and displaying it using React.
+
+## Displaying the Database information
+
+
 
 ## What I Learned from this Project
 
