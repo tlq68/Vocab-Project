@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from '@material-ui/icons/Remove';
-
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 
@@ -46,8 +45,33 @@ function CreateArea(props) {
     });
   }
 
+  const [articles, setArticles] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch('/articles')
+      const jsonResult = await result.json();
+
+      setArticles(jsonResult)
+    }
+
+    fetchData();
+  }, [])
+  
+
   return (
     <div>
+
+          <div className="authors__container">
+
+            <h2>Articles:</h2>
+            {articles.map(article => 
+              <div key={article.id} className='article__container'>
+                <h3>{article.title} {article.content}</h3>
+              </div>
+            )}
+          </div>
+
       <form action="../../post" method="post" className="create-note">
         {isExpanded && (
           <input
@@ -81,9 +105,9 @@ function CreateArea(props) {
       </form>
 
       <form action="../../articles" method="post">
-      <input type="text" value='Title Test' name="title"></input>
-      <input type="text" value='Content Test' name="content"></input>
-      <button type="submit" name="submitButton">submit</button>
+        <input type="text" value='Title Test' name="title"></input>
+        <input type="text" value='Content Test' name="content"></input>
+        <button type="submit" name="submitButton">submit</button>
 
       </form>
     </div>
