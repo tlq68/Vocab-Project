@@ -18,9 +18,10 @@ After connecting the two ends, it is now possible to send information from the R
 
 ## Displaying the Database information
 
-
+In order to display the data from the backend, I implement a simple fetch algorithm within a useEffect Hook. The algorithm targets the database and looks for the data. When data is found, it is converted to a readable format and then the useState Hook is triggered to display the information.
 
 ## What I Learned from this Project
 
 - package.json scripts
 - package.json proxy
+- useEffect React Hook
