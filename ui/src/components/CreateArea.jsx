@@ -3,6 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from '@material-ui/icons/Remove';
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
+import { blue } from "@material-ui/core/colors";
 
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
@@ -58,21 +59,11 @@ function CreateArea(props) {
     fetchData();
   }, [])
   
+  
 
   return (
     <div>
-
-          <div className="authors__container">
-
-            <h2>Articles:</h2>
-            {articles.map(article => 
-              <div key={article.id} className='article__container'>
-                <h3>{article.title} {article.content}</h3>
-              </div>
-            )}
-          </div>
-
-      <form action="../../post" method="post" className="create-note">
+      <form className="create-note">
         {isExpanded && (
           <input
             name="title"
@@ -104,12 +95,16 @@ function CreateArea(props) {
         </Zoom>
       </form>
 
-      <form action="../../articles" method="post">
-        <input type="text" value='Title Test' name="title"></input>
-        <input type="text" value='Content Test' name="content"></input>
-        <button type="submit" name="submitButton">submit</button>
+      <div className="articles__container">
 
-      </form>
+        <h2>Palavras:</h2>
+        {articles.map(article => 
+          <div key={article.id} className='article__container note'>
+            <h1>{article.title}</h1>
+            <p>{article.content}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
