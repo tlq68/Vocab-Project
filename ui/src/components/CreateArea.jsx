@@ -46,14 +46,14 @@ function CreateArea(props) {
     });
   }
 
-  const [articles, setArticles] = useState([])
+  const [words, setWords] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetch('/articles')
+      const result = await fetch('/entries')
       const jsonResult = await result.json();
 
-      setArticles(jsonResult)
+      setWords(jsonResult)
     }
 
     fetchData();
@@ -96,10 +96,10 @@ function CreateArea(props) {
       <div className="articles__container">
 
         <h2>Palavras:</h2>
-        {articles.map(article => 
-          <div key={article.id} className='article__container note'>
-            <h1>{article.title}</h1>
-            <p>{article.content}</p>
+        {words.map(word => 
+          <div key={word.id} className='word__container note'>
+            <h1>{word.word}</h1>
+            <p>{word.translation}</p>
           </div>
         )}
       </div>
