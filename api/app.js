@@ -11,113 +11,25 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.static('public'))
 
-mongoose.connect('mongodb://localhost:27017/wikiDB')
+mongoose.connect('mongodb://localhost:27017/dictionaryDB')
  
-const articleSchema = {
-  title: String,
-  content: 
-  {
-    type: String
-  }
+const entrySchema = {
+  word: String,
+  type: String,
+  gender: String,
+  translation: String,
+  description: String,
+  location: String
 }
 
-const Article = mongoose.model('Article', articleSchema)
+const Entry = mongoose.model('Entry', entrySchema)
 
-app.route('/articles')
-
-.get((req, res) => {
-    Article.find({}, (err, foundArticles) => {
-      if (!err) {
-        // app.render('article', { articleTitle: foundArticles.title, articleContent: fountArticles.content})
-        res.send(foundArticles)
-      } else {
-        res.send(err)
-      }
-    }
-  )
-})
-
-.post((req, res) => {
-  const articleTitle = req.body.title
-  const articleContent = req.body.content
-
-  const article = new Article ({
-    title: articleTitle,
-    content: articleContent
-  })
-
-  article.save((err) => {
-    if (!err) {
-      res.send('The article was successfully added.')
-    } else {
-      res.send(err)
-    }
-  })
-})
-
-.delete((req, res) => {
-  Article.deleteMany({}, (err) => {
-    if (!err) {
-      res.send('Every article was deleted.')
-    } else {
-      res.send(err)
-    }
-  })
-})
-
-app.route('/articles/:articleTitle')
+app.route('/entries')
 
 .get((req, res) => {
-  const articleTitle = req.params.articleTitle
-
-  Article.findOne({ title: articleTitle }, (err, foundArticle) => {
-    if (foundArticle) {
-      res.send(foundArticle)
-    } else {
-      res.send('No article matching that title was found.')
-    }
-  })
-})
-
-.put((req, res) => {
-  const articleTitle = req.params.articleTitle
-  const newArticleTitle = req.body.title
-  const newArticleContent = req.body.content
-  Article.updateOne(
-    { title: articleTitle },
-    { $set: { title: newArticleTitle, content: newArticleContent } }, { overwrite: true },
-    (err) => {
+    Entry.find({}, (err, foundEntries) => {
       if (!err) {
-        res.send('Successfully updated article')
-      } else {
-        res.send(err)
-      }
-    }
-  )
-})
-
-.patch((req, res) => {
-  const articleTitle = req.params.articleTitle
-  Article.updateOne(
-    { title: articleTitle },
-    { $set: req.body }, 
-    (err) => {
-      if (!err) {
-        res.send('Successfully patched article')
-      } 
-      else {
-        res.send(err)
-      }
-    }
-  )
-})
-
-.delete((req, res) => {
-  const articleTitle = req.params.articleTitle
-  Article.deleteOne({ title: articleTitle },
-    (err) => {
-      if (!err) {
-        res.send('Successfully deleted article')
+        res.send(foundEntries)
       } else {
         res.send(err)
       }
@@ -126,12 +38,6 @@ app.route('/articles/:articleTitle')
 })
 
 const PORT = process.env.PORT || 3001;
-
-app.post("/post", (req, res) => {
-  console.log(`Connected to React from ${PORT}` );
-  res.redirect("/");
-});
-
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`)

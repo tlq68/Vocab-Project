@@ -58,6 +58,16 @@ function CreateArea(props) {
 
     fetchData();
   }, [])
+
+  /* 
+    Part 1 [Word - palavra
+    Type - (NA)
+    Gender (if applicable) - (NA)]
+    ---
+
+    Part 2[Translation - NA
+    Location - Dictionary or 'Your term']
+  */
   
   return (
     <div>
