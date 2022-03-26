@@ -59,8 +59,6 @@ function CreateArea(props) {
     fetchData();
   }, [])
   
-  
-
   return (
     <div>
       <form className="create-note">
