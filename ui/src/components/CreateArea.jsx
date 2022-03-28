@@ -5,6 +5,8 @@ import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 import { blue } from "@material-ui/core/colors";
 
+import Accordion from 'react-bootstrap/Accordion';
+
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
 
@@ -95,17 +97,25 @@ function CreateArea(props) {
 
       <div className="articles__container">
 
-        <h2>Palavras:</h2>
         {words.map(word => 
           <div key={word.id} className='word-container note'>
-              <h1>{word.word}</h1>
-              <p className="wordType part-of-speech"> {word.type} ({word.gender})</p>
-            <p>{word.translation}</p>
-            <hr></hr>
-            <p className="description">{word.description}</p>
-            <p className="location">{word.location} Term</p>
+            <h1>{word.word}</h1>
+
+           
+              <div>
+                <p className="wordType part-of-speech"> {word.type} ({word.gender})</p>
+                <p>{word.translation}</p>
+                <hr></hr>
+                <p className="description">{word.description}</p>
+                <p className="location">{word.location} Term</p>
+              </div>
+
+
+            
           </div>
         )}
+
+       
       </div>
     </div>
   );

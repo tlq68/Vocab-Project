@@ -7,15 +7,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: "Montserrat", sans-serif;
 }
+
 body {
   background: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   padding: 0 16px;
 }
-
 
 header {
   background-color: #f5ba13;
@@ -42,6 +43,12 @@ footer p {
   color: #ccc;
 }
 
+.articles__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .word-container {
   position: relative;
 }
@@ -51,7 +58,7 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
+  width: 300px;
   margin: 16px;
   float: left;
 }
@@ -86,7 +93,6 @@ p.wordType {
   position: absolute;
   top: 2px;
   right: 2px;
-
 }
 
 .part-of-speech {
