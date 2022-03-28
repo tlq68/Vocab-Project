@@ -97,9 +97,13 @@ function CreateArea(props) {
 
         <h2>Palavras:</h2>
         {words.map(word => 
-          <div key={word.id} className='word__container note'>
-            <h1>{word.word}</h1>
+          <div key={word.id} className='word-container note'>
+              <h1>{word.word}</h1>
+              <p className="gender">{word.gender}</p>
+              <p className="wordType part-of-speech"> {word.type} </p>
             <p>{word.translation}</p>
+            <p>{word.description}</p>
+            <p className="location">{word.location} Term</p>
           </div>
         )}
       </div>

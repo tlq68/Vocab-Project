@@ -1,3 +1,7 @@
+:root {
+  --verb-color: rgb(40, 5, 236);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -11,6 +15,7 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   padding: 0 16px;
 }
+
 
 header {
   background-color: #f5ba13;
@@ -36,6 +41,11 @@ footer {
 footer p {
   color: #ccc;
 }
+
+.word-container {
+  position: relative;
+}
+
 .note {
   background: #fff;
   border-radius: 7px;
@@ -49,11 +59,12 @@ footer p {
   font-size: 1.1em;
   margin-bottom: 6px;
 }
+
 .note p {
   font-size: 1.1em;
   margin-bottom: 10px;
   white-space: pre-wrap;
-  word-wrap: break-word;
+  word-wrap: initial;
 }
 
 .note button {
@@ -66,6 +77,40 @@ footer p {
   height: 36px;
   cursor: pointer;
   outline: none;
+}
+
+p.wordType {
+  font-size: .7rem;
+  font-weight: 800;
+
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+}
+
+.part-of-speech {
+  color: var(--verb-color);
+}
+
+p.gender {
+  font-size: .7rem;
+  font-weight: 800;
+  color: blue;
+
+  position: absolute;
+  top: 2px;
+  right: 90px;
+}
+
+p.location {
+  font-size: .7rem;
+  font-weight: 800;
+  color: blue;
+
+  position: absolute;
+  bottom: -8px;
+  right: 4px;
 }
 
 form.create-note {
