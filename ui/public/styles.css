@@ -93,14 +93,17 @@ p.wordType {
   color: var(--verb-color);
 }
 
-p.gender {
-  font-size: .7rem;
-  font-weight: 800;
-  color: blue;
 
-  position: absolute;
-  top: 2px;
-  right: 90px;
+hr {
+  margin-bottom: 10px;
+}
+
+p.description {
+  margin: 10px 0 25px;
+
+  font-size: 1rem;
+  font-weight: 600;
+  color:rgb(250, 33, 4);
 }
 
 p.location {
