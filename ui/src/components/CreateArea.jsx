@@ -97,23 +97,35 @@ function CreateArea(props) {
 
       <div className="articles__container">
 
-        {words.map(word => 
+        {words.map((word, index) => 
           <div key={word.id} className='word-container note'>
-            <h1>{word.word}</h1>
-
-           
-              <div>
+            {/* <h1>{word.word}</h1>  */}
+              {/* <div>
                 <p className="wordType part-of-speech"> {word.type} ({word.gender})</p>
                 <p>{word.translation}</p>
                 <hr></hr>
                 <p className="description">{word.description}</p>
                 <p className="location">{word.location} Term</p>
-              </div>
+              </div> */}
 
-
+              <Accordion>
+                <Accordion.Item eventKey={index}>
+                <Accordion.Header>{word.word}</Accordion.Header>
+                  <Accordion.Body>
+                  <p className="wordType part-of-speech"> {word.type} ({word.gender})</p>
+                <p>{word.translation}</p>
+                <hr></hr>
+                <p className="description">{word.description}</p>
+                <p className="location">{word.location} Term</p>
+                  </Accordion.Body>
+                </Accordion.Item>
+                
+              </Accordion>
             
           </div>
         )}
+
+       
 
        
       </div>

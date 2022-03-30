@@ -74,7 +74,7 @@ footer p {
   word-wrap: initial;
 }
 
-.note button {
+.note .delete-button {
   position: relative;
   float: right;
   margin-right: 10px;
@@ -164,4 +164,20 @@ form.create-note button.red {
 
 form.create-note button.red:hover {
   background: #ccc;
+}
+
+div.accordion-item {
+  border: none !important;
+  outline: none !important;
+}
+
+.note .accordion-button {
+  float: left;
+  clear: both;
+}
+
+.note .accordion-button, .note .accordion-button:focus, .note .accordion-button:hover {
+  z-index: 0;
+  box-shadow: none;
+  border: 2px solid black;
 }
