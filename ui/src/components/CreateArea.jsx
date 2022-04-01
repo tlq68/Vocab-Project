@@ -113,7 +113,7 @@ function CreateArea(props) {
                 <Accordion.Header>{word.word}</Accordion.Header>
                   <Accordion.Body>
                   <p className="wordType part-of-speech"> {word.type} ({word.gender})</p>
-                <p>{word.translation}</p>
+                <p className="translation">{word.translation}</p>
                 <hr></hr>
                 <p className="description">{word.description}</p>
                 <p className="location">{word.location} Term</p>

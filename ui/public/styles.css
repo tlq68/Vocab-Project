@@ -1,5 +1,5 @@
 :root {
-  --verb-color: rgb(40, 5, 236);
+  --verb-color: rgb(28, 11, 179);
 }
 
 * {
@@ -99,23 +99,18 @@ p.wordType {
   color: var(--verb-color);
 }
 
-
-hr {
-  margin-bottom: 10px;
-}
-
 p.description {
   /* margin: 10px 0 25px; */
 
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   color:rgb(250, 33, 4);
 }
 
 p.location {
   font-size: .7rem;
   font-weight: 800;
-  color: blue;
+  color: var(--verb-color);
 
   position: absolute;
   bottom: -8px;
@@ -172,14 +167,14 @@ div.accordion-item {
 }
 
 .note .accordion-button {
-  min-height: 40px;
-  min-width: 100px;
   display: block;
   float: left;
   clear: both;
 }
 
-
+.note .accordion-button:not(.collapsed) {
+  color: black;
+}
 
 .note .accordion-button, .note .accordion-button:focus, .note .accordion-button:hover {
   z-index: 0;
@@ -203,4 +198,9 @@ div.accordion-item {
 
 .note .accordion-button:hover {
   background-color: rgba(18, 146, 179, 0.712);
+}
+
+.translation {
+  color: rgb(30, 156, 13);
+  font-weight: 600;
 }
