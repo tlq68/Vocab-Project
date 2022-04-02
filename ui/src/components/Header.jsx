@@ -5,8 +5,7 @@ function Header() {
   return (
     <header>
       <h1>
-        <HighlightIcon />
-        Keeper
+       Vocabulário
       </h1>
     </header>
   );
