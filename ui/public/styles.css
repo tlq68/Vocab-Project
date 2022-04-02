@@ -1,5 +1,7 @@
 :root {
-  --verb-color: rgb(28, 11, 179);
+  --corner-color: rgb(28, 11, 179);
+  --description-color: rgb(250, 33, 4);
+  --translation-color: rgb(30, 156, 13);
 }
 
 * {
@@ -96,21 +98,19 @@ p.wordType {
 }
 
 .part-of-speech {
-  color: var(--verb-color);
+  color: var(--corner-color);
 }
 
 p.description {
-  /* margin: 10px 0 25px; */
-
   font-size: 1rem;
   font-weight: 700;
-  color:rgb(250, 33, 4);
+  color: var(--description-color)
 }
 
 p.location {
   font-size: .7rem;
   font-weight: 800;
-  color: var(--verb-color);
+  color: var(--corner-color);
 
   position: absolute;
   bottom: -8px;
@@ -201,6 +201,6 @@ div.accordion-item {
 }
 
 .translation {
-  color: rgb(30, 156, 13);
+  color: var(--translation-color);
   font-weight: 600;
 }
