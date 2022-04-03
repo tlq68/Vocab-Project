@@ -7,21 +7,27 @@ import CreateArea from "./CreateArea";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([Object.keys(localStorage)][0]);
 
+  
   function addNote(newNote) {
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
     });
   }
 
-  function deleteNote(id) {
+  function deleteNote(title, id) {
+    localStorage.removeItem(title)
+    console.log(localStorage)
     setNotes(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
     });
   }
+
+
+
 
   const [words, setWords] = useState([])
 
@@ -35,6 +41,8 @@ function App() {
 
     fetchData();
   }, [])
+
+  
 
   return (
     <div>
@@ -56,17 +64,23 @@ function App() {
         )}
       </div>
 
-      {notes.map((noteItem, index) => {
-        return (
-          <Note
-            key={index}
-            id={index}
-            title={noteItem.title}
-            content={noteItem.content}
-            onDelete={deleteNote}
-          />
-        );
-      })}
+      <div>
+        {notes.map((key, index) => {
+           return (
+        
+            <Note
+              key={index}
+              id={index}
+              title={key}
+              content={localStorage[key]}
+              onDelete={deleteNote}
+            />
+           )
+        
+        })
+        
+        }
+      </div>
       <Footer />
     </div>
   );

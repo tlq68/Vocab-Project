@@ -4,7 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 const Word = (props) => {
  
   return (
-    <div key={props.key} className='word-container note'>
+    <div className='word-container note'>
       <Accordion>
         <Accordion.Item eventKey={props.eventKey}>
         <Accordion.Header>{props.word}</Accordion.Header>

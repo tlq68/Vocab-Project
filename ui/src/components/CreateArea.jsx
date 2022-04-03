@@ -3,9 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from '@material-ui/icons/Remove';
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
-import { blue } from "@material-ui/core/colors";
 
-import Accordion from 'react-bootstrap/Accordion';
 
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
@@ -27,11 +25,14 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
+
     props.onAdd(note);
+    localStorage.setItem(note.title, note.content )
     setNote({
       title: "",
       content: ""
     });
+
     event.preventDefault();
   }
 
@@ -47,19 +48,6 @@ function CreateArea(props) {
       content: ""
     });
   }
-
-  const [words, setWords] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch('/entries')
-      const jsonResult = await result.json();
-
-      setWords(jsonResult)
-    }
-
-    fetchData();
-  }, [])
   
   return (
     <div>
