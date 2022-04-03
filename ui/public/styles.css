@@ -45,7 +45,7 @@ footer p {
   color: #ccc;
 }
 
-.articles__container {
+.vocabulary__container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

@@ -95,8 +95,7 @@ function CreateArea(props) {
         </Zoom>
       </form>
 
-      <div className="articles__container">
-
+      {/* <div className="vocabulary__container">
         {words.map((word, index) => 
           <div key={word.id} className='word-container note'>
               <Accordion>
@@ -113,11 +112,7 @@ function CreateArea(props) {
               </Accordion>
           </div>
         )}
-
-       
-
-       
-      </div>
+      </div> */}
     </div>
   );
 }

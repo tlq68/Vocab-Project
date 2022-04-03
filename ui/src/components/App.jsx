@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
+import Word from "./Word";
 import CreateArea from "./CreateArea";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,10 +23,39 @@ function App() {
     });
   }
 
+  const [words, setWords] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch('/entries')
+      const jsonResult = await result.json();
+
+      setWords(jsonResult)
+    }
+
+    fetchData();
+  }, [])
+
   return (
     <div>
       <Header />
       <CreateArea onAdd={addNote} />
+
+      <div className="vocabulary__container">
+        {words.map((word, index) => 
+          <Word 
+            key={index}
+            eventKey={index}
+            word={word.word}
+            type={word.type}
+            gender={word.gender}
+            translation={word.translation}
+            description={word.description}
+            location={word.location}
+          /> 
+        )}
+      </div>
+
       {notes.map((noteItem, index) => {
         return (
           <Note
@@ -38,11 +68,7 @@ function App() {
         );
       })}
       <Footer />
-
-     
     </div>
-
-    
   );
 }
 
