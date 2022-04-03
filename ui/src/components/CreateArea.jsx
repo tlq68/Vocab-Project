@@ -94,25 +94,6 @@ function CreateArea(props) {
           </Fab>
         </Zoom>
       </form>
-
-      {/* <div className="vocabulary__container">
-        {words.map((word, index) => 
-          <div key={word.id} className='word-container note'>
-              <Accordion>
-                <Accordion.Item eventKey={index}>
-                <Accordion.Header>{word.word}</Accordion.Header>
-                  <Accordion.Body>
-                  <p className="wordType part-of-speech"> {word.type} ({word.gender})</p>
-                <p className="translation">{word.translation}</p>
-                <hr></hr>
-                <p className="description">{word.description}</p>
-                <p className="location">{word.location} Term</p>
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-          </div>
-        )}
-      </div> */}
     </div>
   );
 }
