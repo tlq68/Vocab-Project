@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [notes, setNotes] = useState([Object.keys(localStorage)][0]);
 
-  
   function addNote(newNote) {
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
@@ -18,16 +17,12 @@ function App() {
 
   function deleteNote(title, id) {
     localStorage.removeItem(title)
-    console.log(localStorage)
     setNotes(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
     });
   }
-
-
-
 
   const [words, setWords] = useState([])
 
@@ -42,7 +37,7 @@ function App() {
     fetchData();
   }, [])
 
-  
+ 
 
   return (
     <div>

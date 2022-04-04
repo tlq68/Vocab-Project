@@ -8,10 +8,7 @@ import Zoom from "@material-ui/core/Zoom";
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
 
-  const [note, setNote] = useState({
-    title: "",
-    content: ""
-  });
+  const [note, setNote] = useState([]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -26,8 +23,10 @@ function CreateArea(props) {
 
   function submitNote(event) {
 
-    props.onAdd(note);
+    console.log(note)
     localStorage.setItem(note.title, note.content )
+    props.onAdd([note.title, note.content]);
+    
     setNote({
       title: "",
       content: ""
