@@ -45,9 +45,10 @@ footer p {
   color: #ccc;
 }
 
-.vocabulary__container {
+.vocabulary__container, .notes__container {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -56,6 +57,7 @@ footer p {
 }
 
 .note {
+  position: relative;
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
@@ -77,15 +79,16 @@ footer p {
 }
 
 .note .delete-button {
-  position: relative;
-  float: right;
-  margin-right: 10px;
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
   color: #f5ba13;
   border: none;
   width: 36px;
   height: 36px;
   cursor: pointer;
   outline: none;
+  z-index: 1;
 }
 
 p.wordType {

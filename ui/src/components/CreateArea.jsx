@@ -10,6 +10,8 @@ function CreateArea(props) {
 
   const [note, setNote] = useState([]);
 
+  const [notes, setNotes] = useState([Object.keys(localStorage)][0]);
+
   function handleChange(event) {
     const { name, value } = event.target;
 
@@ -22,9 +24,7 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
-
-    console.log(note)
-    localStorage.setItem(note.title, note.content )
+    localStorage.setItem(note.title, note.content)
     props.onAdd([note.title, note.content]);
     
     setNote({

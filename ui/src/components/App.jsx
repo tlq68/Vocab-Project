@@ -37,8 +37,6 @@ function App() {
     fetchData();
   }, [])
 
- 
-
   return (
     <div>
       <Header />
@@ -59,7 +57,7 @@ function App() {
         )}
       </div>
 
-      <div>
+      <div className="notes__container">
         {notes.map((key, index) => {
            return (
         
